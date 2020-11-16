@@ -555,6 +555,9 @@ html,
   opacity: 0;
   position: relative;
 }
+#project2 a{
+  padding: 10px 0;
+}
 #project2.active {
   animation: slideInRight 0.75s ease-in;
   opacity: 1;
@@ -608,6 +611,9 @@ html,
 #project5 {
   opacity: 0;
   position: relative;
+}
+#project5 a{
+  padding: 20px 0;
 }
 #project5.active {
   animation: slideInLeft 0.75s ease-in;
