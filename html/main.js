@@ -109,15 +109,16 @@ const thanks = document.querySelector("#thanks");
   function getFormData(form) {
     var elements = form.elements;
     var honeypot;
+
     thanks.innerHTML = "<p>Sending...</p>";
     var fields = Object.keys(elements)
-      // .filter(function (k) {
-      //   if (elements[k].name === "honeypot") {
-      //     honeypot = elements[k].value;
-      //     return false;
-      //   }
-      //   return true;
-      // })
+      .filter(function (k) {
+        if (elements[k].name === "agaveBucket") {
+          honeypot = elements[k].value;
+          return false;
+        }
+        return true;
+      })
       .map(function (k) {
         if (elements[k].name !== undefined) {
           return elements[k].name;
@@ -129,14 +130,11 @@ const thanks = document.querySelector("#thanks");
       .filter(function (item, pos, self) {
         return self.indexOf(item) == pos && item;
       });
-
-    var formData = {};
+      var formData = {};
     fields.forEach(function (name) {
       var element = elements[name];
-
       // singular form elements just have one value
       formData[name] = element.value;
-
       // when our element has multiple items, get their values
       if (element.length) {
         var data = [];
@@ -166,9 +164,11 @@ const thanks = document.querySelector("#thanks");
     var data = formData.data;
 
     // If a honeypot field is filled, assume it was done so by a spam bot.
-    // if (formData.honeypot) {
-    //   return false;
-    // }
+    if (formData.honeypot) {
+      thanks.innerHTML =
+      "<p>BuzzzFizzz Bo Bot Bot... Spam Bots not Welcome...</p>";
+      return false;
+    }
 
     disableAllButtons(form);
     var url = form.action;
@@ -179,14 +179,6 @@ const thanks = document.querySelector("#thanks");
     xhr.onreadystatechange = function () {
       if (xhr.readyState === 4 && xhr.status === 200) {
         form.reset();
-        // var formElements = form.querySelector(".form-elements");
-        // if (formElements) {
-        //   formElements.style.display = "none"; // hide form
-        // }
-        // var thankYouMessage = form.querySelector(".thankyou_message");
-        // if (thankYouMessage) {
-        //   thankYouMessage.style.display = "block";
-        // }
 
         thanks.innerHTML =
           "<p>Email Sent! I'll get back with you as soon as possible!</p>";
