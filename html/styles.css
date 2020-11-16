@@ -868,6 +868,9 @@ input,
 #thanks {
   color: #ffffff;
 }
+#agaveBucket{
+  display: none;
+}
 
 @media screen and (max-width: 1364px) {
   .Row {
