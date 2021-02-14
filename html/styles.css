@@ -555,9 +555,7 @@ html,
   opacity: 0;
   position: relative;
 }
-#project2 a{
-  padding: 10px 0;
-}
+
 #project2.active {
   animation: slideInRight 0.75s ease-in;
   opacity: 1;
@@ -612,7 +610,7 @@ html,
   opacity: 0;
   position: relative;
 }
-#project5 a{
+#project5 a {
   padding: 20px 0;
 }
 #project5.active {
@@ -657,10 +655,6 @@ html,
 }
 .project img:hover {
   transform: scale(1.02);
-}
-
-#rps {
-  padding: 12px 0;
 }
 
 #contact {
@@ -868,7 +862,7 @@ input,
 #thanks {
   color: #ffffff;
 }
-#agaveBucket{
+#agaveBucket {
   display: none;
 }
 
