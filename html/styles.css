@@ -892,6 +892,9 @@ input,
     padding: 2rem;
     align-items: center;
   }
+  #project1 {
+    margin-bottom: 106px;
+  }
   .project {
     margin-top: 3rem;
   }
